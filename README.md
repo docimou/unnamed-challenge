@@ -22,3 +22,8 @@ Each line is iteratively processed, and the count for a word is incremented afte
 Similarly, `median_unique.py` does not use any classes, and goes through the same word-counting procedure as `words_tweeted.py`.  In fact, I could have combined the word-counting portion but since the two files were separated in the starter code, my assumption was that they needed to be separated in the code.  Regardless, this could be trivially combined later on.
 
 Once the lists of words are calculated, the number of elements in each list (aka the unique words in the tweet) are put in another list, `unique`.  This is then iterated through, and for each item in `unique` a new list `seen` is made.  It is comprised of all previous elements as well as the current one.  It is sorted and the median is then found, with the middle two elements being averaged if the total count of is even.
+
+Other
+---
+
+This was developed primarily on an Mac, partially through Linux Mint, and the last-minute tests were done on a Windows 64-bit machine.
