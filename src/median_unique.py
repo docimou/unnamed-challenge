@@ -10,7 +10,7 @@
 #       python median_unique.py -i ../fileIn.txt -o ../fileOut.txt
 #
 
-import sys, getopt, os, decimal
+import sys, getopt, os
 
 """ The median_unique function takes a file name as input and modifies a named
     output file. It reads in each line as a tweet and parses them by word. Each
@@ -55,13 +55,16 @@ def words_tweeted(fileIn, fileOut, quiet):
     with open(fileOut, 'w') as tweeted:
         # iterate through list of unique words in each tweet
         for j in range(0, len(unique)):
-            total = 0
             k = 0
-            # average all previous items inclusively
+            seen = []
+            # find median of all previous items inclusively
             while (k <= j):
-                total += unique[k]
+                seen.append(unique[k])
                 k += 1
-            average = float(total) / (j + 1)
+            if (len(seen) % 2 == 0):
+                average = float(seen[len(seen)/2] + seen[(len(seen)/2) - 1]) / 2
+            else:
+                average = float(seen[len(seen)/2])
             tweeted.write("{0:.1f}\n".format(average))
 
     if (not quiet):
