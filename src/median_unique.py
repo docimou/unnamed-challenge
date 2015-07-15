@@ -61,6 +61,7 @@ def words_tweeted(fileIn, fileOut, quiet):
             while (k <= j):
                 seen.append(unique[k])
                 k += 1
+            seen.sort()
             if (len(seen) % 2 == 0):
                 average = float(seen[len(seen)/2] + seen[(len(seen)/2) - 1]) / 2
             else:
